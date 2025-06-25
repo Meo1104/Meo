@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Drink Shop App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- TOPBAR: Đăng ký / Đăng nhập -->
+  <div class="topbar">
+    <input type="text" id="username" placeholder="Tên đăng nhập" />
+    <input type="password" id="password" placeholder="Mật khẩu" />
+    <select id="role">
+      <option value="customer">Khách hàng</option>
+      <option value="admin">Quản trị</option>
+    </select>
+    <button onclick="register()">Đăng ký</button>
+    <button onclick="login()">Đăng nhập</button>
+    <button onclick="logout()" id="logoutBtn" class="hidden">Đăng xuất</button>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <h2> Drink Shop App</h2>
+
+    <!-- Danh sách nước ngọt -->
+    <div id="drinkList" class="cards"></div>
+
+    <!-- Giỏ hàng -->
+    <div id="cartSection" class="hidden">
+      <h3>🛒 Giỏ hàng</h3>
+      <table id="cartTable">
+        <thead>
+          <tr>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th>Xóa</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button onclick="checkout()">Thanh toán</button>
+    </div>
+
+    <!-- Lịch sử mua hàng -->
+    <div id="historySection" class="hidden">
+      <h3>📜 Lịch sử thanh toán</h3>
+      <ul id="historyList"></ul>
+    </div>
+
+    <!-- Admin: Quản trị hệ thống -->
+    <div id="adminSection" class="hidden">
+      <h3>🔧 Quản trị</h3>
+      <input type="text" id="newDrinkName" placeholder="Tên nước" />
+      <input type="number" id="newDrinkPrice" placeholder="Giá" />
+      <input type="text" id="newDrinkImage" placeholder="URL hình ảnh" />
+      <button onclick="addDrink()">Thêm nước</button>
+
+      <h3>👥 Danh sách người dùng</h3>
+      <ul id="userList"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
